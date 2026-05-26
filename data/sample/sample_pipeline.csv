@@ -1,0 +1,11 @@
+Request ID,Campaign ID,Opportunity ID,Account Name,Amount,Type,Stage,Close Date,Region,Industry,LoB,Solution Area,Campaign Type,Assigned To,Asset Type
+REQ-0001,CAMP-0001,OPP-0001,Financial Services Corp 101,250000,Influenced,Value Prop,2025-06-30,North America,Financial Services,Sales,SAP S/4HANA,Prospecting,Sarah Chen,Outreach sequence
+REQ-0001,CAMP-0001,OPP-0001-S,Financial Services Corp 101,100000,Sourced,Qualified,2025-07-31,North America,Financial Services,Sales,SAP S/4HANA,Prospecting,Sarah Chen,Outreach sequence
+REQ-0002,CAMP-0002,OPP-0002,Healthcare Solutions 202,180000,Influenced,Proposal/Price Quote,2025-06-15,EMEA,Healthcare,HR,SAP SuccessFactors,Pipeline Acceleration,Marcus Johnson,Folloze board
+REQ-0004,CAMP-0004,OPP-0004,Retail Corp 404,320000,Influenced,Negotiation/Review,2025-05-31,LATAM,Retail,Marketing,SAP CX / CRM,Upsell,David Kim,Campaign asset kit
+REQ-0004,CAMP-0004,OPP-0004-S,Retail Corp 404,80000,Sourced,Qualified,2025-07-15,LATAM,Retail,Marketing,SAP CX / CRM,Upsell,David Kim,Campaign asset kit
+REQ-0005,CAMP-0005,OPP-0005,Technology Inc 505,450000,Influenced,Id. Decision Makers,2025-08-31,North America,Technology,IT,SAP BTP,Event Follow-up,Priya Patel,Webinar package
+REQ-0005,CAMP-0005,OPP-0005-S,Technology Inc 505,150000,Sourced,Value Prop,2025-09-30,North America,Technology,IT,SAP BTP,Event Follow-up,Priya Patel,Webinar package
+REQ-0008,CAMP-0008,OPP-0008,Telco Solutions 808,210000,Influenced,Proposal/Price Quote,2025-06-30,APJ,Telecommunications,IT,SAP IBP,Pipeline Acceleration,Marcus Johnson,One pager
+REQ-0010,CAMP-0010,OPP-0010,Healthcare Group 1010,380000,Influenced,Value Prop,2025-07-31,North America,Healthcare,Operations,SAP S/4HANA,Prospecting,David Kim,Outreach sequence
+REQ-0010,CAMP-0010,OPP-0010-S,Healthcare Group 1010,120000,Sourced,Qualified,2025-08-31,North America,Healthcare,Operations,SAP S/4HANA,Prospecting,David Kim,Outreach sequence

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curators Dashboard 2.0</title>
+
+  <!-- Tailwind CSS (utility classes) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Chart.js — charting library -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+
+  <!-- PapaParse — CSV parsing -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="src/styles/app.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Sidebar navigation -->
+    <nav id="sidebar"></nav>
+
+    <!-- Main content area -->
+    <div id="main-area">
+      <!-- Top bar -->
+      <div id="topbar">
+        <span id="topbar-title" class="topbar-title">Executive Overview</span>
+      </div>
+
+      <!-- Global filter bar (collapsible) -->
+      <div id="filter-bar"></div>
+
+      <!-- Page content -->
+      <div id="content-wrapper">
+        <div id="content"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Drilldown slide-in panel -->
+  <div id="drilldown-overlay"></div>
+  <div id="drilldown-panel">
+    <div class="panel-header">
+      <span id="drilldown-title" style="font-size:15px;font-weight:600;color:#32363A"></span>
+      <button class="panel-close" id="drilldown-close" title="Close">×</button>
+    </div>
+    <div class="panel-body" id="drilldown-body"></div>
+  </div>
+
+  <!-- Main app module — loaded as ES module (requires local server) -->
+  <script type="module" src="src/app.js"></script>
+</body>
+</html>
