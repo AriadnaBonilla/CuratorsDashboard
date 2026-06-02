@@ -16,7 +16,7 @@ const REQUEST_FIELD_MAP = {
   solutionArea:           ['Solution Area', 'Solution', 'solution_area', 'SOLUTION', 'Product Area', 'Solution Area L1', 'Solution Area L2'],
   campaignType:           ['Campaign Type', 'Type', 'campaign_type', 'CAMP_TYPE', 'Tactic Type'],
   assetType:              ['Asset Type', 'asset_type', 'ASSET_TYPE', 'DAT Type', 'Deliverable Type', 'Digital Assets team support'],
-  status:                 ['Status', 'status', 'STATE', 'Request Status'],
+  status:                 ['Request Status', 'Status', 'status', 'STATE'],
   assignedTo:             ['Assigned To', 'Owner', 'Curator', 'assigned_to', 'CURATOR', 'DAT Owner'],
   submittedDate:          ['Submitted Date', 'Created', 'Created Date', 'submitted_date', 'CREATED_ON', 'Date Submitted', 'Request Date', 'Creado', 'Execution Start Date'],
   completedDate:          ['Completed Date', 'Completion Date', 'completed_date', 'CLOSED_ON', 'Date Completed', 'Closed Date'],
@@ -49,7 +49,7 @@ const PIPELINE_FIELD_MAP = {
 
 const STATUS_NORMALIZE = {
   'complete': 'Completed', 'completed': 'Completed', 'done': 'Completed', 'closed': 'Completed', 'delivered': 'Completed',
-  'in progress': 'In Progress', 'inprogress': 'In Progress', 'wip': 'In Progress', 'active': 'In Progress', 'open': 'In Progress',
+  'in progress': 'In Progress', 'inprogress': 'In Progress', 'wip': 'In Progress', 'active': 'In Progress', 'open': 'In Progress', 'execution in progress': 'In Progress',
   'pending': 'Pending', 'new': 'Pending', 'submitted': 'Pending', 'not started': 'Pending', 'requested': 'Pending',
   'waiting': 'Waiting for Feedback', 'waiting for feedback': 'Waiting for Feedback',
   'no action needed': 'No Action Needed',
@@ -65,6 +65,7 @@ const ASSET_NORMALIZE = {
   'one pager': 'One pager', '1 pager': 'One pager', 'onepager': 'One pager', 'fact sheet': 'One pager', 'datasheet': 'One pager',
   'campaign asset kit': 'Campaign asset kit', 'asset kit': 'Campaign asset kit', 'kit': 'Campaign asset kit',
   'premium campaign package': 'Campaign asset kit', 'premium package': 'Campaign asset kit',
+  'campaign assets kits': 'Campaign asset kit', 'campaign assets kit': 'Campaign asset kit',
   'webinar': 'Webinar package', 'webinar package': 'Webinar package', 'webinar kit': 'Webinar package'
 };
 

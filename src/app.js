@@ -12,6 +12,15 @@ const CAPACITY_MAP = {
   // "James Wilson": 8,
 };
 
+// ── SAP Analytics Cloud links ─────────────────────────────────────────────────
+// Paste your SAC story URLs here. They will appear in the sidebar.
+// Each entry: { label: 'Name shown in sidebar', url: 'https://...' }
+const SAC_REPORTS = [
+  // { label: 'Pipeline Overview',     url: 'https://your-tenant.cloud.sap/sap/fpa/ui/tenants/...' },
+  // { label: 'Regional Performance',  url: 'https://your-tenant.cloud.sap/sap/fpa/ui/tenants/...' },
+  // { label: 'Industry Coverage',     url: 'https://your-tenant.cloud.sap/sap/fpa/ui/tenants/...' },
+];
+
 // ── Imports ───────────────────────────────────────────────────────────────────
 
 import { createStore, DEFAULT_FILTERS } from './utils/store.js';
@@ -120,6 +129,19 @@ function buildSidebar() {
         <span style="flex:1">${p.label}</span>
         ${key === 'dataquality' && dqCount > 0 ? `<span style="background:#DF6E0C;color:#fff;border-radius:10px;padding:1px 7px;font-size:10px">${dqCount}</span>` : ''}
       </a>`).join('')}
+
+    <div class="sidebar-section-label" style="margin-top:16px">SAC Reports</div>
+    ${SAC_REPORTS.length > 0
+      ? SAC_REPORTS.map(r => `
+      <a class="nav-item" href="${r.url}" target="_blank" rel="noopener" style="opacity:.85">
+        <span class="nav-icon">📊</span>
+        <span style="flex:1">${r.label}</span>
+        <span style="font-size:10px;opacity:.5">↗</span>
+      </a>`).join('')
+      : `<div style="padding:6px 16px 10px;font-size:11px;color:rgba(255,255,255,.3);line-height:1.5">
+           Add SAC story URLs in<br><code style="color:rgba(255,255,255,.45)">app.js → SAC_REPORTS</code>
+         </div>`
+    }
 
     <div class="sidebar-footer">
       <div style="font-size:11px;color:rgba(255,255,255,.4);margin-bottom:10px">DATA SOURCE</div>
@@ -349,9 +371,28 @@ function setupDrilldown() {
   document.getElementById('drilldown-overlay').addEventListener('click', closeDrilldown);
 }
 
+// ── Auto-load from GitHub repo data file ─────────────────────────────────────
+// Power Automate updates data/requests.csv in this GitHub repo daily.
+// On startup the dashboard tries to fetch it automatically.
+// Falls back to mock data if the file doesn't exist yet.
+
+async function tryAutoLoad() {
+  try {
+    const res = await fetch('data/requests.csv');
+    if (!res.ok) return false;
+    const text = await res.text();
+    const { rows } = parseRequestsCSV(text);
+    if (!rows.length) return false;
+    store.setState({ allRequests: rows, dataSource: 'csv' });
+    return true;
+  } catch (_) {
+    return false;
+  }
+}
+
 // ── Init ──────────────────────────────────────────────────────────────────────
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
   const initialPage = location.hash.replace('#', '') || 'overview';
   store.setState({ currentPage: PAGES[initialPage] ? initialPage : 'overview' });
 
@@ -359,6 +400,9 @@ document.addEventListener('DOMContentLoaded', () => {
   buildTopbar();
   buildFilterBar();
   setupDrilldown();
+
+  await tryAutoLoad();
+
   renderCurrentPage();
   updateNav(store.getState().currentPage);
 
